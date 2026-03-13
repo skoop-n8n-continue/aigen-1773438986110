@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality Roots — Deals Drop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js?v=x9r2k4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js?v=x9r2k4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/CustomEase.min.js?v=x9r2k4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/DrawSVGPlugin.min.js?v=x9r2k4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MorphSVGPlugin.min.js?v=x9r2k4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MotionPathPlugin.min.js?v=x9r2k4"></script>
+
+  <link rel="stylesheet" href="style.css?v=x9r2k4">
+</head>
+<body>
+  <div id="scene">
+
+    <!-- ─── BACKGROUND ─── -->
+    <div id="background">
+      <canvas id="bg-canvas"></canvas>
+      <div id="bg-grid"></div>
+      <div id="bg-vignette"></div>
+      <div id="bg-spotlight"></div>
+    </div>
+
+    <!-- ─── DECORATIVE SVG LAYER ─── -->
+    <svg id="decor-svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <!-- Corner brackets -->
+      <g id="corner-tl" class="corner-bracket" opacity="0">
+        <polyline points="40,100 40,40 100,40" fill="none" stroke="#7BC240" stroke-width="4"/>
+        <polyline points="50,110 50,50 110,50" fill="none" stroke="#7BC240" stroke-width="1.5" opacity="0.4"/>
+      </g>
+      <g id="corner-tr" class="corner-bracket" opacity="0">
+        <polyline points="1880,100 1880,40 1820,40" fill="none" stroke="#7BC240" stroke-width="4"/>
+        <polyline points="1870,110 1870,50 1810,50" fill="none" stroke="#7BC240" stroke-width="1.5" opacity="0.4"/>
+      </g>
+      <g id="corner-bl" class="corner-bracket" opacity="0">
+        <polyline points="40,980 40,1040 100,1040" fill="none" stroke="#7BC240" stroke-width="4"/>
+        <polyline points="50,970 50,1030 110,1030" fill="none" stroke="#7BC240" stroke-width="1.5" opacity="0.4"/>
+      </g>
+      <g id="corner-br" class="corner-bracket" opacity="0">
+        <polyline points="1880,980 1880,1040 1820,1040" fill="none" stroke="#7BC240" stroke-width="4"/>
+        <polyline points="1870,970 1870,1030 1810,1030" fill="none" stroke="#7BC240" stroke-width="1.5" opacity="0.4"/>
+      </g>
+
+      <!-- Horizontal accent lines -->
+      <line id="h-line-top" x1="0" y1="130" x2="0" y2="130" stroke="#7BC240" stroke-width="2" opacity="0.5"/>
+      <line id="h-line-bot" x1="1920" y1="950" x2="1920" y2="950" stroke="#7BC240" stroke-width="2" opacity="0.5"/>
+
+      <!-- Left side cannabis icon (simplified leaf) -->
+      <g id="leaf-deco-l" opacity="0" transform="translate(80, 540) scale(0.7)">
+        <path d="M0,0 C-20,-60 -60,-80 -50,-130 C-30,-90 10,-70 0,0Z" fill="none" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+        <path d="M0,0 C20,-60 60,-80 50,-130 C30,-90 -10,-70 0,0Z" fill="none" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+        <path d="M0,0 C-40,-30 -80,-20 -90,-60 C-60,-40 -20,-30 0,0Z" fill="none" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+        <path d="M0,0 C40,-30 80,-20 90,-60 C60,-40 20,-30 0,0Z" fill="none" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+        <line x1="0" y1="0" x2="0" y2="80" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+      </g>
+      <g id="leaf-deco-r" opacity="0" transform="translate(1840, 540) scale(0.7)">
+        <path d="M0,0 C-20,-60 -60,-80 -50,-130 C-30,-90 10,-70 0,0Z" fill="none" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+        <path d="M0,0 C20,-60 60,-80 50,-130 C30,-90 -10,-70 0,0Z" fill="none" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+        <path d="M0,0 C-40,-30 -80,-20 -90,-60 C-60,-40 -20,-30 0,0Z" fill="none" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+        <path d="M0,0 C40,-30 80,-20 90,-60 C60,-40 20,-30 0,0Z" fill="none" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+        <line x1="0" y1="0" x2="0" y2="80" stroke="#7BC240" stroke-width="2" opacity="0.6"/>
+      </g>
+
+      <!-- Impact shockwave rings (hidden, shown on product drop) -->
+      <circle id="shockwave-1" cx="960" cy="1080" r="0" fill="none" stroke="#7BC240" stroke-width="3" opacity="0"/>
+      <circle id="shockwave-2" cx="960" cy="1080" r="0" fill="none" stroke="#7BC240" stroke-width="2" opacity="0"/>
+      <circle id="shockwave-3" cx="960" cy="1080" r="0" fill="none" stroke="#B0DC80" stroke-width="1" opacity="0"/>
+
+      <!-- Diagonal slash decorations -->
+      <g id="slash-deco" opacity="0">
+        <line x1="200" y1="0" x2="300" y2="1080" stroke="#7BC240" stroke-width="1" opacity="0.12"/>
+        <line x1="350" y1="0" x2="450" y2="1080" stroke="#7BC240" stroke-width="0.5" opacity="0.08"/>
+        <line x1="1570" y1="0" x2="1670" y2="1080" stroke="#7BC240" stroke-width="1" opacity="0.12"/>
+        <line x1="1620" y1="0" x2="1720" y2="1080" stroke="#7BC240" stroke-width="0.5" opacity="0.08"/>
+      </g>
+    </svg>
+
+    <!-- ─── BRAND HEADER ─── -->
+    <div id="brand-header">
+      <div id="qr-logo-wrap">
+        <svg id="qr-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <!-- Hexagon -->
+          <polygon points="30,4 54,17 54,43 30,56 6,43 6,17" fill="none" stroke="#7BC240" stroke-width="2.5"/>
+          <!-- Inner leaf -->
+          <path d="M30,48 C30,48 14,36 14,24 C14,16 22,12 30,20 C38,12 46,16 46,24 C46,36 30,48 30,48Z" fill="#7BC240" opacity="0.9"/>
+          <line x1="30" y1="48" x2="30" y2="52" stroke="#7BC240" stroke-width="2"/>
+        </svg>
+        <div id="brand-text-wrap">
+          <span id="brand-quality">QUALITY</span>
+          <span id="brand-roots">ROOTS</span>
+        </div>
+      </div>
+      <div id="header-tagline">DEALS DROP</div>
+    </div>
+
+    <!-- ─── TICKER STRIP ─── -->
+    <div id="ticker-strip">
+      <div id="ticker-content">
+        <span class="tick-item">🌿 QUALITY ROOTS DEALS</span>
+        <span class="tick-sep">◆</span>
+        <span class="tick-item">SAVE BIG TODAY</span>
+        <span class="tick-sep">◆</span>
+        <span class="tick-item">PREMIUM CANNABIS</span>
+        <span class="tick-sep">◆</span>
+        <span class="tick-item">🌿 QUALITY ROOTS DEALS</span>
+        <span class="tick-sep">◆</span>
+        <span class="tick-item">SAVE BIG TODAY</span>
+        <span class="tick-sep">◆</span>
+        <span class="tick-item">PREMIUM CANNABIS</span>
+        <span class="tick-sep">◆</span>
+        <span class="tick-item">🌿 QUALITY ROOTS DEALS</span>
+        <span class="tick-sep">◆</span>
+        <span class="tick-item">SHOP NOW</span>
+        <span class="tick-sep">◆</span>
+        <span class="tick-item">EXCLUSIVE SAVINGS</span>
+        <span class="tick-sep">◆</span>
+      </div>
+    </div>
+
+    <!-- ─── PRODUCT STAGE ─── -->
+    <div id="products-container">
+      <!-- dynamically filled by animation.js -->
+    </div>
+
+    <!-- ─── PRODUCT CARD TEMPLATE (cloned by JS) ─── -->
+    <template id="product-tpl">
+      <div class="product">
+        <!-- Left: Category + Product Info -->
+        <div class="prod-left">
+          <div class="prod-category-badge">
+            <span class="cat-icon"></span>
+            <span class="cat-label">CATEGORY</span>
+          </div>
+          <div class="prod-brand">BRAND</div>
+          <h2 class="prod-name">PRODUCT NAME</h2>
+          <div class="prod-meta">META</div>
+          <div class="prod-strain-badge">
+            <span class="strain-label">STRAIN</span>
+          </div>
+        </div>
+
+        <!-- Center: Product Image -->
+        <div class="prod-center">
+          <div class="prod-image-wrap">
+            <div class="prod-image-glow"></div>
+            <img class="prod-image" src="" alt="">
+          </div>
+        </div>
+
+        <!-- Right: Pricing -->
+        <div class="prod-right">
+          <div class="sale-tag-wrap">
+            <div class="sale-tag">
+              <div class="sale-tag-inner">
+                <div class="sale-pct">50%</div>
+                <div class="sale-pct-label">OFF</div>
+              </div>
+            </div>
+          </div>
+          <div class="price-block">
+            <div class="price-was-label">WAS</div>
+            <div class="price-original">
+              <span class="price-orig-val">$0.00</span>
+              <div class="strike-line"></div>
+            </div>
+            <div class="price-now-label">NOW ONLY</div>
+            <div class="price-sale">$0.00</div>
+          </div>
+          <div class="savings-banner">
+            <span class="savings-text">YOU SAVE <span class="savings-amt">$0.00</span></span>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- ─── FOREGROUND PARTICLES ─── -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ─── FLASH OVERLAY ─── -->
+    <div id="flash-overlay"></div>
+
+  </div>
+
+  <script src="animation.js?v=x9r2k4"></script>
+</body>
+</html>

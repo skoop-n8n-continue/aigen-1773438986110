@@ -1,0 +1,37 @@
+{
+  "template_id": "qr-deals-drop-v1",
+  "name": "Quality Roots — Deals Drop",
+  "created_at": "2026-03-13T00:00:00.000Z",
+  "version": "1.0.0",
+  "theme": {
+    "style": "athletic-cannabis-bold",
+    "description": "Cinematic solo product spotlight with wipe transitions, shockwave impact effects, spinning sale badges, and particle explosions — inspired by Quality Roots' athletic dark-green branding.",
+    "colors": ["#1D3C2A", "#7BC240", "#0A160D", "#E84855", "#F5EED8"],
+    "mood": "energetic, premium, bold, impactful, cannabis lifestyle",
+    "tags": ["deals", "cannabis", "promo", "discount", "quality-roots", "animated", "cinematic"]
+  },
+  "capabilities": {
+    "products_per_cycle": 1,
+    "cycles_through_all_products": true
+  },
+  "animation": {
+    "duration": 9,
+    "fps": 30,
+    "entrance_duration": 1.5,
+    "idle_duration": 4.5,
+    "exit_duration": 1.5,
+    "total_cycle_seconds": 9,
+    "uses_plugins": ["CustomEase", "SplitText", "DrawSVGPlugin"]
+  },
+  "assets": {
+    "background": "generated via CSS canvas — animated forest green with diagonal bands",
+    "overlays": ["#particle-canvas (GSAP particle system)", "#decor-svg (animated SVG decorations)"],
+    "icons": ["Quality Roots hexagon leaf logo (inline SVG)", "corner brackets", "cannabis leaf decorations"],
+    "fonts": ["Bebas Neue", "Anton", "Barlow Condensed", "Barlow"]
+  },
+  "technical": {
+    "resolution": "1920x1080",
+    "performance": "optimized — canvas-based background, CSS particles",
+    "browser_compatibility": "chrome_latest"
+  }
+}

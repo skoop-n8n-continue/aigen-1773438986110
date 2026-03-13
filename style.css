@@ -1,0 +1,509 @@
+/* ============================================================
+   QUALITY ROOTS — DEALS DROP — style.css
+   Canvas: 1920 × 1080
+   ============================================================ */
+
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #0A160D;
+  font-family: 'Barlow Condensed', 'Anton', sans-serif;
+}
+
+/* ─── SCENE ─────────────────────────────────────────────── */
+#scene {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+  background: #0A160D;
+}
+
+/* ─── BACKGROUND ─────────────────────────────────────────── */
+#background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+#bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(123, 194, 64, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123, 194, 64, 0.07) 1px, transparent 1px);
+  background-size: 80px 80px;
+  z-index: 1;
+}
+
+#bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 120% 100% at 50% 50%,
+    transparent 30%,
+    rgba(5, 10, 6, 0.7) 80%,
+    rgba(3, 6, 4, 0.95) 100%
+  );
+  z-index: 2;
+}
+
+#bg-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 55% 70% at 50% 50%,
+    rgba(29, 60, 42, 0.55) 0%,
+    rgba(16, 36, 22, 0.3) 45%,
+    transparent 70%
+  );
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* ─── DECORATIVE SVG ─────────────────────────────────────── */
+#decor-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ─── BRAND HEADER ──────────────────────────────────────── */
+#brand-header {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px;
+  z-index: 30;
+  opacity: 0;
+}
+
+#qr-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#qr-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+#brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+#brand-quality {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #7BC240;
+  letter-spacing: 6px;
+}
+
+#brand-roots {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 42px;
+  color: #ffffff;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+#header-tagline {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 28px;
+  letter-spacing: 8px;
+  color: #7BC240;
+  opacity: 0.8;
+}
+
+/* ─── TICKER STRIP ───────────────────────────────────────── */
+#ticker-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: #7BC240;
+  z-index: 30;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transform: translateY(100%);
+}
+
+#ticker-content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 0;
+  /* animation via GSAP */
+}
+
+.tick-item {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 22px;
+  letter-spacing: 4px;
+  color: #1D3C2A;
+  padding: 0 32px;
+}
+
+.tick-sep {
+  font-size: 16px;
+  color: #1D3C2A;
+  opacity: 0.6;
+  padding: 0 4px;
+}
+
+/* ─── PRODUCTS CONTAINER ─────────────────────────────────── */
+#products-container {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ─── PRODUCT LAYOUT ─────────────────────────────────────── */
+.product {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 80px 80px;
+  gap: 0;
+}
+
+/* LEFT: Info column */
+.prod-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 40px;
+  gap: 16px;
+  z-index: 2;
+}
+
+.prod-category-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(123, 194, 64, 0.15);
+  border: 1.5px solid #7BC240;
+  border-radius: 4px;
+  padding: 6px 18px 6px 14px;
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.cat-icon {
+  font-size: 16px;
+}
+
+.cat-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #7BC240;
+  text-transform: uppercase;
+}
+
+.prod-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.prod-name {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 62px;
+  line-height: 1.05;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 480px;
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.prod-meta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.prod-strain-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(29, 60, 42, 0.8);
+  border: 1.5px solid rgba(123, 194, 64, 0.5);
+  border-radius: 100px;
+  padding: 5px 20px;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.strain-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #7BC240;
+  text-transform: uppercase;
+}
+
+/* CENTER: Image */
+.prod-center {
+  flex: 0 0 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+.prod-image-wrap {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(-120px);
+}
+
+.prod-image-glow {
+  position: absolute;
+  inset: -40px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(123, 194, 64, 0.22) 0%,
+    rgba(123, 194, 64, 0.08) 50%,
+    transparent 70%
+  );
+  filter: blur(20px);
+}
+
+.prod-image {
+  max-width: 420px;
+  max-height: 420px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.7));
+}
+
+/* RIGHT: Pricing */
+.prod-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 20px;
+  padding-left: 40px;
+  gap: 24px;
+  z-index: 2;
+}
+
+/* Sale tag — spinning badge */
+.sale-tag-wrap {
+  opacity: 0;
+  transform: scale(0) rotate(-180deg);
+}
+
+.sale-tag {
+  width: 150px;
+  height: 150px;
+  background: #E84855;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sale-tag-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  transform: translateY(8px);
+}
+
+.sale-pct {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 44px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.sale-pct-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #ffffff;
+}
+
+/* Price block */
+.price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  opacity: 0;
+}
+
+.price-was-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: right;
+}
+
+.price-original {
+  position: relative;
+  display: inline-block;
+}
+
+.price-orig-val {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 58px;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.strike-line {
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  right: -8px;
+  height: 5px;
+  background: #E84855;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(232, 72, 85, 0.6);
+}
+
+.price-now-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: #7BC240;
+  text-align: right;
+  margin-top: 6px;
+}
+
+.price-sale {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 110px;
+  line-height: 1;
+  color: #7BC240;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 40px rgba(123, 194, 64, 0.5),
+    0 0 80px rgba(123, 194, 64, 0.2);
+  transform: scale(0);
+  transform-origin: right center;
+}
+
+/* Savings banner */
+.savings-banner {
+  background: #7BC240;
+  padding: 8px 24px;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.savings-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #1D3C2A;
+  text-transform: uppercase;
+}
+
+.savings-amt {
+  font-weight: 900;
+}
+
+/* ─── PARTICLE CANVAS ────────────────────────────────────── */
+#particle-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* ─── FLASH OVERLAY ──────────────────────────────────────── */
+#flash-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ─── TRANSITION WIPE ────────────────────────────────────── */
+.wipe-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: #1D3C2A;
+  z-index: 35;
+}
+
+#wipe-left  { left: 0; }
+#wipe-right { right: 0; }

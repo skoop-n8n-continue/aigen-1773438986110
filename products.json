@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": "3452466",
+      "name": "Savvy Blue Magic Guap Gummy 25mg 1-Pack",
+      "online_title": "Savvy Blue Magic Guap Gummy 25mg 1-Pack",
+      "brand": "Savvy",
+      "category": "Gummies",
+      "price": "$7.00",
+      "original_price": "$7.00",
+      "discounted_price": 3.5,
+      "image_url": "https://skoop-general.s3.us-east-1.amazonaws.com/n8n_image_gen%2Fundefined-1773196700024.png",
+      "strain": "Indica",
+      "lab_thc_value": 2.48,
+      "lab_thc_unit": "mg",
+      "meta": "25mg THC | Indica | Gummies"
+    },
+    {
+      "id": "3465870",
+      "name": "Lost Farm Juicy Peach x GSC Sherbet Live Resin Gummies 10mg x 10-Pack",
+      "online_title": "Lost Farm Juicy Peach x GSC Sherbet Live Resin Gummies 10mg x 10-Pack",
+      "brand": "Lost Farm",
+      "category": "Gummies",
+      "price": "$30.00",
+      "original_price": "$30.00",
+      "discounted_price": 15,
+      "image_url": "https://skoop-general.s3.us-east-1.amazonaws.com/n8n_image_gen%2Fundefined-1773196879298.png",
+      "strain": "Hybrid",
+      "lab_thc_value": 2.27,
+      "lab_thc_unit": "mg",
+      "meta": "10mg x 10pk | Live Resin | Hybrid"
+    },
+    {
+      "id": "3475123",
+      "name": "Orange Malt Flower 7g",
+      "online_title": "Orange Malt Flower 7g",
+      "brand": "URBNJ",
+      "category": "Whole Flower",
+      "price": "$65.00",
+      "original_price": "$65.00",
+      "discounted_price": 32.5,
+      "image_url": "https://leaflogixmedia.blob.core.windows.net/product-image/ce1aabe2-d086-4462-91ad-8f70ef4c5913.jpg",
+      "strain": "Hybrid",
+      "lab_thc_value": 26.19,
+      "lab_thc_unit": "%",
+      "meta": "26.19% THC | Hybrid | 7g"
+    }
+  ]
+}
